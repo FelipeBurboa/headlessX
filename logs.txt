@@ -1,0 +1,63 @@
+2025-Sep-22 18:24:32.574032
+Starting deployment of felipe-burboa/headless-x:main-t4s0g8s04s4csc4kcgkoww0c to localhost.
+2025-Sep-22 18:24:32.803670
+Preparing container with helper image: ghcr.io/coollabsio/coolify-helper:1.0.11.
+2025-Sep-22 18:24:32.943494
+[CMD]: docker stop --time=30 uggwwg0skks8gccgkgkkwwo0
+2025-Sep-22 18:24:32.943494
+Error response from daemon: No such container: uggwwg0skks8gccgkgkkwwo0
+2025-Sep-22 18:24:33.067411
+[CMD]: docker rm -f uggwwg0skks8gccgkgkkwwo0
+2025-Sep-22 18:24:33.067411
+Error response from daemon: No such container: uggwwg0skks8gccgkgkkwwo0
+2025-Sep-22 18:24:33.295078
+[CMD]: docker run -d --network coolify --name uggwwg0skks8gccgkgkkwwo0 --rm -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/coollabsio/coolify-helper:1.0.11
+2025-Sep-22 18:24:33.295078
+c7c2559cf35f8c91ae8c3ad461b0d968258d04e703996efc4d21ddd3c3d68d12
+2025-Sep-22 18:24:34.483529
+[CMD]: docker exec uggwwg0skks8gccgkgkkwwo0 bash -c 'GIT_SSH_COMMAND="ssh -o ConnectTimeout=30 -p 22 -o Port=22 -o LogLevel=ERROR -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" git ls-remote https://github.com/FelipeBurboa/headlessX refs/heads/main'
+2025-Sep-22 18:24:34.483529
+3138c9693ef0bccfc3aaebde196edcd12721ce88	refs/heads/main
+2025-Sep-22 18:24:34.498401
+----------------------------------------
+2025-Sep-22 18:24:34.501900
+Importing FelipeBurboa/headlessX:main (commit sha HEAD) to /artifacts/uggwwg0skks8gccgkgkkwwo0.
+2025-Sep-22 18:24:34.697871
+[CMD]: docker exec uggwwg0skks8gccgkgkkwwo0 bash -c 'git clone --depth=1 --recurse-submodules --shallow-submodules -b 'main' 'https://github.com/FelipeBurboa/headlessX' '/artifacts/uggwwg0skks8gccgkgkkwwo0' && cd /artifacts/uggwwg0skks8gccgkgkkwwo0 && if [ -f .gitmodules ]; then sed -i "s#git@\(.*\):#https://\1/#g" /artifacts/uggwwg0skks8gccgkgkkwwo0/.gitmodules || true && git submodule sync && GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" git submodule update --init --recursive --depth=1; fi && cd /artifacts/uggwwg0skks8gccgkgkkwwo0 && GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" git lfs pull'
+2025-Sep-22 18:24:34.697871
+Cloning into '/artifacts/uggwwg0skks8gccgkgkkwwo0'...
+2025-Sep-22 18:24:35.563443
+[CMD]: docker exec uggwwg0skks8gccgkgkkwwo0 bash -c 'cd /artifacts/uggwwg0skks8gccgkgkkwwo0 && git log -1 3138c9693ef0bccfc3aaebde196edcd12721ce88 --pretty=%B'
+2025-Sep-22 18:24:35.563443
+fix: Remove AUTH_TOKEN from environment variables in docker-compose.yml
+2025-Sep-22 18:24:37.146942
+Pulling & building required images.
+2025-Sep-22 18:24:39.141677
+[CMD]: docker exec uggwwg0skks8gccgkgkkwwo0 bash -c 'SOURCE_COMMIT=3138c9693ef0bccfc3aaebde196edcd12721ce88 COOLIFY_BRANCH=main  docker compose --env-file /artifacts/uggwwg0skks8gccgkgkkwwo0/.env --project-name ywo0co8wo8g00g8gkkgc4gg0 --project-directory /artifacts/uggwwg0skks8gccgkgkkwwo0 -f /artifacts/uggwwg0skks8gccgkgkkwwo0/docker/docker-compose.yml build --pull'
+2025-Sep-22 18:24:39.141677
+#1 [internal] load local bake definitions
+2025-Sep-22 18:24:39.297649
+#1 reading from stdin 376B done
+2025-Sep-22 18:24:39.297649
+#1 DONE 0.0s
+2025-Sep-22 18:24:39.397139
+resolve : lstat /artifacts/docker: no such file or directory
+2025-Sep-22 18:24:39.405595
+exit status 1
+2025-Sep-22 18:24:39.624672
+Oops something is not okay, are you okay? 😢
+2025-Sep-22 18:24:39.660602
+resolve : lstat /artifacts/docker: no such file or directory
+2025-Sep-22 18:24:39.660602
+2025-Sep-22 18:24:39.660602
+exit status 1
+2025-Sep-22 18:24:40.180526
+Gracefully shutting down build container: uggwwg0skks8gccgkgkkwwo0
+2025-Sep-22 18:24:40.476714
+[CMD]: docker stop --time=30 uggwwg0skks8gccgkgkkwwo0
+2025-Sep-22 18:24:40.476714
+uggwwg0skks8gccgkgkkwwo0
+2025-Sep-22 18:24:40.645070
+[CMD]: docker rm -f uggwwg0skks8gccgkgkkwwo0
+2025-Sep-22 18:24:40.645070
+Error response from daemon: No such container: uggwwg0skks8gccgkgkkwwo0

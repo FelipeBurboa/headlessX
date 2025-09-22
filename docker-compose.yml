@@ -1,8 +1,8 @@
 services:
   headlessx:
-    build: 
-      context: ..
-      dockerfile: docker/Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: headlessx
     ports:
       - "3000:3000"    # Direct access to Node.js server (no nginx proxy needed)
@@ -14,10 +14,10 @@ services:
       - UV_THREADPOOL_SIZE=128
       - NODE_OPTIONS=--max-old-space-size=4096
     env_file:
-      - ../.env                            # Load from .env file in parent directory
+      - .env                            # Load from .env file in root directory
     restart: unless-stopped
     volumes:
-      - ../logs:/app/logs                  # Persistent logs
+      - ./logs:/app/logs                  # Persistent logs
       - /tmp:/tmp                          # Temporary files
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
