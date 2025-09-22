@@ -74,3 +74,5 @@ config.local.js
 # Backup files
 *.backup
 *.bak
+
+logs.txt

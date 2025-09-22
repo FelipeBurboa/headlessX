@@ -1,63 +1,260 @@
-2025-Sep-22 18:24:32.574032
-Starting deployment of felipe-burboa/headless-x:main-t4s0g8s04s4csc4kcgkoww0c to localhost.
-2025-Sep-22 18:24:32.803670
-Preparing container with helper image: ghcr.io/coollabsio/coolify-helper:1.0.11.
-2025-Sep-22 18:24:32.943494
-[CMD]: docker stop --time=30 uggwwg0skks8gccgkgkkwwo0
-2025-Sep-22 18:24:32.943494
-Error response from daemon: No such container: uggwwg0skks8gccgkgkkwwo0
-2025-Sep-22 18:24:33.067411
-[CMD]: docker rm -f uggwwg0skks8gccgkgkkwwo0
-2025-Sep-22 18:24:33.067411
-Error response from daemon: No such container: uggwwg0skks8gccgkgkkwwo0
-2025-Sep-22 18:24:33.295078
-[CMD]: docker run -d --network coolify --name uggwwg0skks8gccgkgkkwwo0 --rm -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/coollabsio/coolify-helper:1.0.11
-2025-Sep-22 18:24:33.295078
-c7c2559cf35f8c91ae8c3ad461b0d968258d04e703996efc4d21ddd3c3d68d12
-2025-Sep-22 18:24:34.483529
-[CMD]: docker exec uggwwg0skks8gccgkgkkwwo0 bash -c 'GIT_SSH_COMMAND="ssh -o ConnectTimeout=30 -p 22 -o Port=22 -o LogLevel=ERROR -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" git ls-remote https://github.com/FelipeBurboa/headlessX refs/heads/main'
-2025-Sep-22 18:24:34.483529
-3138c9693ef0bccfc3aaebde196edcd12721ce88	refs/heads/main
-2025-Sep-22 18:24:34.498401
-----------------------------------------
-2025-Sep-22 18:24:34.501900
-Importing FelipeBurboa/headlessX:main (commit sha HEAD) to /artifacts/uggwwg0skks8gccgkgkkwwo0.
-2025-Sep-22 18:24:34.697871
-[CMD]: docker exec uggwwg0skks8gccgkgkkwwo0 bash -c 'git clone --depth=1 --recurse-submodules --shallow-submodules -b 'main' 'https://github.com/FelipeBurboa/headlessX' '/artifacts/uggwwg0skks8gccgkgkkwwo0' && cd /artifacts/uggwwg0skks8gccgkgkkwwo0 && if [ -f .gitmodules ]; then sed -i "s#git@\(.*\):#https://\1/#g" /artifacts/uggwwg0skks8gccgkgkkwwo0/.gitmodules || true && git submodule sync && GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" git submodule update --init --recursive --depth=1; fi && cd /artifacts/uggwwg0skks8gccgkgkkwwo0 && GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" git lfs pull'
-2025-Sep-22 18:24:34.697871
-Cloning into '/artifacts/uggwwg0skks8gccgkgkkwwo0'...
-2025-Sep-22 18:24:35.563443
-[CMD]: docker exec uggwwg0skks8gccgkgkkwwo0 bash -c 'cd /artifacts/uggwwg0skks8gccgkgkkwwo0 && git log -1 3138c9693ef0bccfc3aaebde196edcd12721ce88 --pretty=%B'
-2025-Sep-22 18:24:35.563443
-fix: Remove AUTH_TOKEN from environment variables in docker-compose.yml
-2025-Sep-22 18:24:37.146942
-Pulling & building required images.
-2025-Sep-22 18:24:39.141677
-[CMD]: docker exec uggwwg0skks8gccgkgkkwwo0 bash -c 'SOURCE_COMMIT=3138c9693ef0bccfc3aaebde196edcd12721ce88 COOLIFY_BRANCH=main  docker compose --env-file /artifacts/uggwwg0skks8gccgkgkkwwo0/.env --project-name ywo0co8wo8g00g8gkkgc4gg0 --project-directory /artifacts/uggwwg0skks8gccgkgkkwwo0 -f /artifacts/uggwwg0skks8gccgkgkkwwo0/docker/docker-compose.yml build --pull'
-2025-Sep-22 18:24:39.141677
-#1 [internal] load local bake definitions
-2025-Sep-22 18:24:39.297649
-#1 reading from stdin 376B done
-2025-Sep-22 18:24:39.297649
-#1 DONE 0.0s
-2025-Sep-22 18:24:39.397139
-resolve : lstat /artifacts/docker: no such file or directory
-2025-Sep-22 18:24:39.405595
+025-Sep-22 18:29:59.924997
+2025-Sep-22 18:29:59.924997
+#15 [stage-1  5/10] RUN if [ -f "package-lock.json" ]; then         npm ci --only=production;     else         npm install --production;     fi && npm cache clean --force
+2025-Sep-22 18:29:59.924997
+#15 1.203 npm warn config production Use `--omit=dev` instead.
+2025-Sep-22 18:30:01.801187
+#15 ...
+2025-Sep-22 18:30:01.801187
+2025-Sep-22 18:30:01.801187
+#12 [website-builder 4/6] RUN npm ci
+2025-Sep-22 18:30:01.801187
+#12 6.805 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+2025-Sep-22 18:30:03.583554
+#12 8.732 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+2025-Sep-22 18:30:08.200096
+#12 12.32 npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+2025-Sep-22 18:30:08.200096
+#12 12.32 npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+2025-Sep-22 18:30:08.200096
+#12 12.43 npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+2025-Sep-22 18:30:47.539493
+#12 ...
+2025-Sep-22 18:30:47.539493
+2025-Sep-22 18:30:47.539493
+#15 [stage-1  5/10] RUN if [ -f "package-lock.json" ]; then         npm ci --only=production;     else         npm install --production;     fi && npm cache clean --force
+2025-Sep-22 18:30:47.539493
+#15 49.57 npm notice
+2025-Sep-22 18:30:47.539493
+#15 49.57 npm notice New major version of npm available! 10.9.3 -> 11.6.0
+2025-Sep-22 18:30:47.539493
+#15 49.57 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.0
+2025-Sep-22 18:30:47.539493
+#15 49.57 npm notice To update run: npm install -g npm@11.6.0
+2025-Sep-22 18:30:47.539493
+#15 49.57 npm notice
+2025-Sep-22 18:30:47.539493
+#15 49.57
+2025-Sep-22 18:30:47.539493
+#15 49.57 added 74 packages, and audited 75 packages in 48s
+2025-Sep-22 18:30:47.539493
+#15 49.57
+2025-Sep-22 18:30:47.539493
+#15 49.57 15 packages are looking for funding
+2025-Sep-22 18:30:47.539493
+#15 49.57   run `npm fund` for details
+2025-Sep-22 18:30:47.539493
+#15 49.57
+2025-Sep-22 18:30:47.539493
+#15 49.57 found 0 vulnerabilities
+2025-Sep-22 18:30:48.975550
+#15 52.35 npm warn using --force Recommended protections disabled.
+2025-Sep-22 18:30:51.526673
+#15 DONE 54.8s
+2025-Sep-22 18:30:51.526673
+2025-Sep-22 18:30:51.526673
+#12 [website-builder 4/6] RUN npm ci
+2025-Sep-22 18:30:51.526673
+#12 51.95 npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+2025-Sep-22 18:30:52.125069
+#12 ...
+2025-Sep-22 18:30:52.125069
+2025-Sep-22 18:30:52.125069
+#16 [stage-1  6/10] COPY src/ ./src/
+2025-Sep-22 18:30:52.125069
+#16 DONE 0.4s
+2025-Sep-22 18:30:52.267765
+#12 [website-builder 4/6] RUN npm ci
+2025-Sep-22 18:30:56.886937
+#12 62.04
+2025-Sep-22 18:30:56.886937
+#12 62.04 added 429 packages, and audited 430 packages in 1m
+2025-Sep-22 18:30:56.886937
+#12 62.04
+2025-Sep-22 18:30:56.886937
+#12 62.04 170 packages are looking for funding
+2025-Sep-22 18:30:56.886937
+#12 62.04   run `npm fund` for details
+2025-Sep-22 18:30:57.042011
+#12 62.05
+2025-Sep-22 18:30:57.042011
+#12 62.05 3 moderate severity vulnerabilities
+2025-Sep-22 18:30:57.042011
+#12 62.05
+2025-Sep-22 18:30:57.042011
+#12 62.05 To address all issues (including breaking changes), run:
+2025-Sep-22 18:30:57.042011
+#12 62.05   npm audit fix --force
+2025-Sep-22 18:30:57.042011
+#12 62.05
+2025-Sep-22 18:30:57.042011
+#12 62.05 Run `npm audit` for details.
+2025-Sep-22 18:30:57.042011
+#12 62.05 npm notice
+2025-Sep-22 18:30:57.042011
+#12 62.05 npm notice New major version of npm available! 10.8.2 -> 11.6.0
+2025-Sep-22 18:30:57.042011
+#12 62.05 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.0
+2025-Sep-22 18:30:57.042011
+#12 62.05 npm notice To update run: npm install -g npm@11.6.0
+2025-Sep-22 18:30:57.042011
+#12 62.05 npm notice
+2025-Sep-22 18:30:57.150269
+#12 DONE 62.3s
+2025-Sep-22 18:30:57.276879
+#17 [website-builder 5/6] COPY website/ ./
+2025-Sep-22 18:30:57.276879
+#17 DONE 0.1s
+2025-Sep-22 18:30:57.434125
+#18 [website-builder 6/6] RUN npm run build
+2025-Sep-22 18:30:58.412185
+#18 1.132
+2025-Sep-22 18:30:58.415599
+#18 1.132 > headlessx-website@1.2.0 build
+2025-Sep-22 18:30:58.415599
+#18 1.132 > next build
+2025-Sep-22 18:30:58.415599
+#18 1.132
+2025-Sep-22 18:30:59.612303
+#18 2.333 Attention: Next.js now collects completely anonymous telemetry regarding usage.
+2025-Sep-22 18:30:59.813318
+#18 2.334 This information is used to shape Next.js' roadmap and prioritize features.
+2025-Sep-22 18:30:59.813318
+#18 2.334 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2025-Sep-22 18:30:59.813318
+#18 2.334 https://nextjs.org/telemetry
+2025-Sep-22 18:30:59.813318
+#18 2.334
+2025-Sep-22 18:30:59.813318
+#18 2.411   ▲ Next.js 14.2.32
+2025-Sep-22 18:30:59.813318
+#18 2.411
+2025-Sep-22 18:30:59.813318
+#18 2.532    Creating an optimized production build ...
+2025-Sep-22 18:31:23.632526
+#18 26.18  ✓ Compiled successfully
+2025-Sep-22 18:31:23.730615
+#18 26.19    Linting and checking validity of types ...
+2025-Sep-22 18:31:30.706239
+#18 33.30    Collecting page data ...
+2025-Sep-22 18:31:32.287578
+#18 35.01    Generating static pages (0/4) ...
+2025-Sep-22 18:31:32.610055
+#18 35.33    Generating static pages (1/4)
+2025-Sep-22 18:31:32.615582
+2025-Sep-22 18:31:32.743450
+#18 35.34    Generating static pages (2/4)
+2025-Sep-22 18:31:32.743450
+#18 35.35    Generating static pages (3/4)
+2025-Sep-22 18:31:32.743450
+#18 35.47  ✓ Generating static pages (4/4)
+2025-Sep-22 18:31:32.985191
+#18 35.71    Finalizing page optimization ...
+2025-Sep-22 18:31:32.985191
+#18 35.71    Collecting build traces ...
+2025-Sep-22 18:31:39.711087
+#18 42.43
+2025-Sep-22 18:31:39.865942
+#18 42.49 Route (app)                              Size     First Load JS
+2025-Sep-22 18:31:39.870760
+#18 42.49 ┌ ○ /                                    42.8 kB         130 kB
+2025-Sep-22 18:31:39.870760
+#18 42.49 └ ○ /_not-found                          873 B          88.1 kB
+2025-Sep-22 18:31:39.870760
+#18 42.49 + First Load JS shared by all            87.2 kB
+2025-Sep-22 18:31:39.870760
+#18 42.49   ├ chunks/117-86b13e13da556ee9.js       31.7 kB
+2025-Sep-22 18:31:39.870760
+#18 42.49   ├ chunks/fd9d1056-d9feceabf46328f7.js  53.6 kB
+2025-Sep-22 18:31:39.870760
+#18 42.49   └ other shared chunks (total)          1.86 kB
+2025-Sep-22 18:31:39.870760
+#18 42.49
+2025-Sep-22 18:31:39.870760
+#18 42.49
+2025-Sep-22 18:31:39.870760
+#18 42.49 ○  (Static)  prerendered as static content
+2025-Sep-22 18:31:39.870760
+#18 42.49
+2025-Sep-22 18:31:39.870760
+#18 DONE 42.6s
+2025-Sep-22 18:31:42.204727
+#19 [stage-1  7/10] COPY --from=website-builder /app/website/out/ ./website/out/
+2025-Sep-22 18:31:42.452479
+#19 DONE 0.1s
+2025-Sep-22 18:31:42.452479
+2025-Sep-22 18:31:42.452479
+#20 [stage-1  8/10] RUN mkdir -p logs
+2025-Sep-22 18:31:43.068894
+#20 DONE 0.8s
+2025-Sep-22 18:31:43.219680
+#21 [stage-1  9/10] RUN groupadd -r headlessx && useradd -r -g headlessx headlessx
+2025-Sep-22 18:31:43.448747
+#21 DONE 0.4s
+2025-Sep-22 18:31:43.600687
+#22 [stage-1 10/10] RUN chown -R headlessx:headlessx /app
+2025-Sep-22 18:31:49.697289
+#22 DONE 6.2s
+2025-Sep-22 18:31:49.874206
+#23 exporting to image
+2025-Sep-22 18:31:49.874206
+#23 exporting layers
+2025-Sep-22 18:31:51.472905
+#23 exporting layers 1.8s done
+2025-Sep-22 18:31:51.472905
+#23 writing image sha256:c51dcc74fa37368c41c9795a83a91d0c8350f479840a9d4638f5644703ad523e
+2025-Sep-22 18:31:51.618696
+#23 writing image sha256:c51dcc74fa37368c41c9795a83a91d0c8350f479840a9d4638f5644703ad523e done
+2025-Sep-22 18:31:51.618696
+#23 naming to docker.io/library/ywo0co8wo8g00g8gkkgc4gg0-headlessx done
+2025-Sep-22 18:31:51.618696
+#23 DONE 1.8s
+2025-Sep-22 18:31:51.618696
+2025-Sep-22 18:31:51.618696
+#24 resolving provenance for metadata file
+2025-Sep-22 18:31:51.694594
+#24 DONE 0.0s
+2025-Sep-22 18:31:51.709256
+headlessx  Built
+2025-Sep-22 18:31:51.834012
+Removing old containers.
+2025-Sep-22 18:31:52.205999
+Starting new application.
+2025-Sep-22 18:31:53.698076
+[CMD]: docker exec a0skcco0w08swogocs4wc4wg bash -c 'SOURCE_COMMIT=f4e04f32123832370ba67c0b8ab4cd03b098ea22 COOLIFY_BRANCH=main  docker compose --env-file /artifacts/a0skcco0w08swogocs4wc4wg/.env --project-name ywo0co8wo8g00g8gkkgc4gg0 --project-directory /artifacts/a0skcco0w08swogocs4wc4wg -f /artifacts/a0skcco0w08swogocs4wc4wg/docker-compose.yml up -d'
+2025-Sep-22 18:31:53.698076
+Network ywo0co8wo8g00g8gkkgc4gg0_headlessx-network  Creating
+2025-Sep-22 18:31:53.787147
+Network ywo0co8wo8g00g8gkkgc4gg0_headlessx-network  Created
+2025-Sep-22 18:31:53.793951
+Container headlessx-ywo0co8wo8g00g8gkkgc4gg0-182944400017  Creating
+2025-Sep-22 18:31:53.799698
+Container headlessx-ywo0co8wo8g00g8gkkgc4gg0-182944400017  Error response from daemon: Range of CPUs is from 0.01 to 2.00, as there are only 2 CPUs available
+2025-Sep-22 18:31:53.799698
+Error response from daemon: Range of CPUs is from 0.01 to 2.00, as there are only 2 CPUs available
+2025-Sep-22 18:31:53.805388
 exit status 1
-2025-Sep-22 18:24:39.624672
+2025-Sep-22 18:31:53.878077
 Oops something is not okay, are you okay? 😢
-2025-Sep-22 18:24:39.660602
-resolve : lstat /artifacts/docker: no such file or directory
-2025-Sep-22 18:24:39.660602
-2025-Sep-22 18:24:39.660602
+2025-Sep-22 18:31:53.883760
+Network ywo0co8wo8g00g8gkkgc4gg0_headlessx-network  Creating
+2025-Sep-22 18:31:53.883760
+Network ywo0co8wo8g00g8gkkgc4gg0_headlessx-network  Created
+2025-Sep-22 18:31:53.883760
+Container headlessx-ywo0co8wo8g00g8gkkgc4gg0-182944400017  Creating
+2025-Sep-22 18:31:53.883760
+Container headlessx-ywo0co8wo8g00g8gkkgc4gg0-182944400017  Error response from daemon: Range of CPUs is from 0.01 to 2.00, as there are only 2 CPUs available
+2025-Sep-22 18:31:53.883760
+Error response from daemon: Range of CPUs is from 0.01 to 2.00, as there are only 2 CPUs available
+2025-Sep-22 18:31:53.883760
 exit status 1
-2025-Sep-22 18:24:40.180526
-Gracefully shutting down build container: uggwwg0skks8gccgkgkkwwo0
-2025-Sep-22 18:24:40.476714
-[CMD]: docker stop --time=30 uggwwg0skks8gccgkgkkwwo0
-2025-Sep-22 18:24:40.476714
-uggwwg0skks8gccgkgkkwwo0
-2025-Sep-22 18:24:40.645070
-[CMD]: docker rm -f uggwwg0skks8gccgkgkkwwo0
-2025-Sep-22 18:24:40.645070
-Error response from daemon: No such container: uggwwg0skks8gccgkgkkwwo0
+2025-Sep-22 18:31:54.261946
+Gracefully shutting down build container: a0skcco0w08swogocs4wc4wg
+2025-Sep-22 18:31:54.659615
+[CMD]: docker stop --time=30 a0skcco0w08swogocs4wc4wg
+2025-Sep-22 18:31:54.659615
+a0skcco0w08swogocs4wc4wg
+2025-Sep-22 18:31:54.826927
+[CMD]: docker rm -f a0skcco0w08swogocs4wc4wg
+2025-Sep-22 18:31:54.826927
+Error response from daemon: No such container: a0skcco0w08swogocs4wc4wg
