@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: headlessx
     ports:
-      - "3000:3000"    # Direct access to Node.js server (no nginx proxy needed)
+      - "3000"    # Only expose container port, let Coolify handle routing
     environment:
       - DOMAIN=${DOMAIN:-localhost}            # Your domain
       - SUBDOMAIN=${SUBDOMAIN:-headlessx}      # Your subdomain
